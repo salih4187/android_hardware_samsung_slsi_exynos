@@ -275,6 +275,7 @@ bool isUHD(const hwc_layer_1_t &layer)
             HEIGHT(layer.sourceCropf) >= UHD_HEIGHT);
 }
 
+#ifdef USES_VPP
 bool isFullRangeColor(const hwc_layer_1_t &layer)
 {
     private_handle_t *handle = private_handle_t::dynamicCast(layer.handle);
@@ -290,6 +291,7 @@ bool isCompressed(const hwc_layer_1_t &layer)
     }
     return false;
 }
+#endif
 
 bool compareYuvLayerConfig(int videoLayers, uint32_t index,
         hwc_layer_1_t &layer,
